@@ -14,17 +14,27 @@ const Cards = () => {
     }
 
     const [gameState, setGameState] = useState(filler);
+    const [score, setScore] = useState(-1);
+    const [best, setBest] = useState(0);
 
     useEffect(() => {
         const lose = gameState.filter((poke) => poke.clicks === 2);
 
         if (lose.length > 0) {
             setGameState(filler);
+            setBest(score);
+            setScore(-1);
+
+            return;
         }
+
+        setScore(score + 1);
     }, [gameState]);
 
     return (
         <div className="cards">
+            <div>Score {score}</div>
+            <div>High Score {best}</div>
             {gameState.map((poke, index) => {
                 return (
                     <Card
