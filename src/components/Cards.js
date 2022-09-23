@@ -22,7 +22,7 @@ const Cards = () => {
 
         if (lose.length > 0) {
             setGameState(filler);
-            setBest(score);
+            if (score > best) setBest(score);
             setScore(-1);
 
             return;
@@ -35,7 +35,7 @@ const Cards = () => {
         <div className="cards">
             <div className="score-container">
                 <div>Score {score}</div>
-                <div>High Score {best}</div>
+                <div>Best Score {best}</div>
             </div>
             <div className="container">
                 {gameState.map((poke, index) => {
