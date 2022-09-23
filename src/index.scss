@@ -1,3 +1,6 @@
+$bluish-black: hsl(234, 78%, 7%);
+$white-primary: hsl(0, 0%, 100%);
+
 @mixin flex(
     $direction: row,
     $content: flex-start,
@@ -15,6 +18,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 body {
@@ -31,11 +35,36 @@ code {
         monospace;
 }
 
+.App {
+    background-color: $bluish-black;
+    color: $white-primary;
+}
+
+header {
+    padding-top: 10px;
+    font-size: 2rem;
+    text-align: center;
+}
+
 .cards {
-    @include flex(row, space-around, center);
+    @include flex(column, center, center);
 
     width: 100vw;
     height: 100vh;
+    gap: 4rem;
+}
+
+.container {
+    @include flex(row, space-around, center);
+
+    width: 100vw;
+}
+
+.score-container {
+    @include flex(row);
+
+    gap: 2rem;
+    font-size: 1.7rem;
 }
 
 img {

@@ -33,19 +33,23 @@ const Cards = () => {
 
     return (
         <div className="cards">
-            <div>Score {score}</div>
-            <div>High Score {best}</div>
-            {gameState.map((poke, index) => {
-                return (
-                    <Card
-                        img={poke.img}
-                        clicks={poke.clicks}
-                        setGameState={setGameState}
-                        id={poke.id}
-                        key={index}
-                    />
-                );
-            })}
+            <div className="score-container">
+                <div>Score {score}</div>
+                <div>High Score {best}</div>
+            </div>
+            <div className="container">
+                {gameState.map((poke, index) => {
+                    return (
+                        <Card
+                            img={poke.img}
+                            clicks={poke.clicks}
+                            setGameState={setGameState}
+                            id={poke.id}
+                            key={index}
+                        />
+                    );
+                })}
+            </div>
         </div>
     );
 };
